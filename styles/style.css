@@ -788,6 +788,198 @@ section {
     color: var(--cinza);
 }
 
-@media (max-width: 900px) {}
+/* RESPONSIVIDADE */
 
-@media (max-width: 480px) {}
+@media (max-width: 900px) {
+    h1 {
+        font-size: 2.2em;
+    }
+
+    h2 {
+        font-size: 1.8em;
+    }
+
+    h3 {
+        font-size: 1.5em;
+    }
+
+    h4 {
+        font-size: 1.2em;
+    }
+
+    p,
+    li,
+    label {
+        font-size: 1em;
+    }
+
+    /* Seção Home */
+    #home {
+        flex-direction: column;
+        justify-content: center;
+        text-align: center;
+        padding: 2em 1em;
+    }
+
+    .home__container {
+        width: 100%;
+        align-items: center;
+    }
+
+    .home__container-img {
+        width: 30%;
+    }
+
+    .home__container-h2,
+    .home__container-p {
+        text-align: center;
+    }
+
+    .home__img {
+        position: relative;
+        height: auto;
+        width: 50%;
+        margin-top: 2em;
+        left: 0;
+        right: 0;
+    }
+
+    /* Seção Sobre */
+    .sobre__img {
+        width: 90%;
+    }
+
+    /* Seção Mentor */
+    #mentor {
+        flex-direction: column;
+        padding: 2em 1em;
+    }
+
+    .mentor__container {
+        flex-direction: column;
+        gap: 2em;
+    }
+
+    .mentor__container-esquerda,
+    .mentor__container-direita {
+        width: 100%;
+    }
+
+    .mentor__container-esquerda-p {
+        width: 100%;
+    }
+
+    .mentor__container-direita {
+        align-items: baseline;
+    }
+
+    .mentor__container-direita-img {
+        width: 60%;
+    }
+
+    .mentor__container-direita-divs {
+        width: 60%;
+    }
+
+    /* Seção Resultados */
+    .resultados_container-cima-videos {
+        flex-direction: column;
+        align-items: center;
+        gap: 1em;
+        padding: 0 1em;
+    }
+
+    .resultados_container-cima-videos-item {
+        width: 100%;
+    }
+
+    .resultados_container-cima-slide {
+        width: 90%;
+    }
+
+    .slide-content {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .resultados_container-baixo-comparativo {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .resultados_container-baixo-comparativo-antes,
+    .resultados_container-baixo-comparativo-depois {
+        width: 100%;
+    }
+}
+
+/* Mobile (max-width: 480px) */
+@media (max-width: 480px) {
+    /* Ajustes de Fonte e Layout Geral */
+    h1 { font-size: 2em; }
+    h2 { font-size: 1.5em; }
+    h3 { font-size: 1.3em; }
+    h4 { font-size: 1.1em; }
+    p, li, label { font-size: 0.9em; }
+
+    section {
+        min-height: auto; /* Permite que a seção se ajuste ao conteúdo */
+        padding: 2em 1em;
+    }
+
+    /* Seção Home */
+    .home__container-img {
+        width: 80%;
+    }
+
+    .home__img {
+        width: 80%; /* Aumenta a imagem principal para ocupar mais espaço */
+        margin-top: 1em;
+    }
+
+    .home__container-p {
+        font-size: 1.4em; /* Reduz o tamanho do parágrafo principal */
+    }
+
+    .home__container-a {
+        padding: 0.5em 1.5em; /* Reduz o padding do botão */
+        font-size: 1.2em;
+    }
+
+    /* Seção Mentor */
+    .mentor__container-direita {
+        align-items: center; /* Centraliza o conteúdo */
+    }
+    
+    .mentor__container-direita-img {
+        width: 90%; /* A imagem preenche a largura da tela */
+    }
+
+    .mentor__container-direita-divs {
+        flex-direction: column; /* As divs de estatísticas se empilham */
+        width: 90%;
+    }
+
+    .mentor__container-direita-divs-div {
+        width: 100%; /* Cada div ocupa a largura total */
+    }
+
+    /* Seção Contato (Formulário) */
+    .contato_container-cima-div-titulo-2 {
+        text-align: center;
+    }
+
+    .contato_container-cima-p {
+        text-align: center;
+        width: 90%; /* Ajusta a largura para não ficar muito estreito */
+    }
+
+    .formulario {
+        width: 95%; /* O formulário ocupa quase toda a largura */
+        padding: 1.5em; /* Reduz o padding interno */
+    }
+
+    .div_meio {
+        flex-direction: column;
+    }
+}

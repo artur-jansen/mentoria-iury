@@ -139,3 +139,18 @@ document.getElementById("multiForm").addEventListener("submit", function(e) {
         }
     });
 });
+
+function trocarImagemMobile() {
+    const passosImg = document.querySelector('.sobre__img');
+    const larguraTela = window.innerWidth;
+
+    if (larguraTela <= 768) {
+        passosImg.src = "./assets/passos-mobile.png";
+    } else {
+        passosImg.src = "./assets/passos-desktop.png";
+    }
+}
+
+// Chama a função ao carregar a página e ao redimensionar a tela
+window.addEventListener('load', trocarImagemMobile);
+window.addEventListener('resize', trocarImagemMobile);
