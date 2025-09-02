@@ -915,53 +915,86 @@ section {
 
 /* Mobile (max-width: 480px) */
 @media (max-width: 480px) {
+
     /* Ajustes de Fonte e Layout Geral */
-    h1 { font-size: 2em; }
-    h2 { font-size: 1.5em; }
-    h3 { font-size: 1.3em; }
-    h4 { font-size: 1.1em; }
-    p, li, label { font-size: 0.9em; }
+    h1 {
+        font-size: 2em;
+    }
+
+    h2 {
+        font-size: 1.5em;
+    }
+
+    h3 {
+        font-size: 1.3em;
+    }
+
+    h4 {
+        font-size: 1.1em;
+    }
+
+    p,
+    li,
+    label {
+        font-size: 0.9em;
+    }
 
     section {
-        min-height: auto; /* Permite que a seção se ajuste ao conteúdo */
+        min-height: auto;
+        /* Permite que a seção se ajuste ao conteúdo */
         padding: 2em 1em;
     }
 
     /* Seção Home */
+    #home {
+        padding: 2em 1em 0em 1em;
+    }
+
     .home__container-img {
-        width: 80%;
+        width: 50%;
     }
 
     .home__img {
-        width: 80%; /* Aumenta a imagem principal para ocupar mais espaço */
+        width: 60%;
+        /* Aumenta a imagem principal para ocupar mais espaço */
         margin-top: 1em;
     }
 
     .home__container-p {
-        font-size: 1.4em; /* Reduz o tamanho do parágrafo principal */
+        font-size: 1.4em;
+        /* Reduz o tamanho do parágrafo principal */
     }
 
     .home__container-a {
-        padding: 0.5em 1.5em; /* Reduz o padding do botão */
+        padding: 0.5em 1.5em;
+        /* Reduz o padding do botão */
         font-size: 1.2em;
     }
 
     /* Seção Mentor */
     .mentor__container-direita {
-        align-items: center; /* Centraliza o conteúdo */
+        align-items: center;
+        /* Centraliza o conteúdo */
     }
-    
+
     .mentor__container-direita-img {
-        width: 90%; /* A imagem preenche a largura da tela */
+        width: 90%;
+        /* A imagem preenche a largura da tela */
     }
 
     .mentor__container-direita-divs {
-        flex-direction: column; /* As divs de estatísticas se empilham */
+        flex-direction: column;
+        /* As divs de estatísticas se empilham */
         width: 90%;
     }
 
     .mentor__container-direita-divs-div {
-        width: 100%; /* Cada div ocupa a largura total */
+        width: 100%;
+        /* Cada div ocupa a largura total */
+    }
+
+    .sobre__container-h3 {
+        text-align: center;
     }
 
     /* Seção Contato (Formulário) */
@@ -971,12 +1004,15 @@ section {
 
     .contato_container-cima-p {
         text-align: center;
-        width: 90%; /* Ajusta a largura para não ficar muito estreito */
+        width: 90%;
+        /* Ajusta a largura para não ficar muito estreito */
     }
 
     .formulario {
-        width: 95%; /* O formulário ocupa quase toda a largura */
-        padding: 1.5em; /* Reduz o padding interno */
+        width: 95%;
+        /* O formulário ocupa quase toda a largura */
+        padding: 1.5em;
+        /* Reduz o padding interno */
     }
 
     .div_meio {
