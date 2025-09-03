@@ -68,89 +68,94 @@ let etapaAtual = 1;
 const totalEtapas = 4;
 
 function validarEtapa() {
-    if (etapaAtual === 1) {
-        const nome = document.getElementById("nome").value.trim();
-        if (!nome.includes(" ")) {
-            alert("Por favor, insira seu nome completo.");
-            return false;
-        }
+  if (etapaAtual === 1) {
+    const nome = document.getElementById("nome").value.trim();
+    if (!nome.includes(" ")) {
+      alert("Por favor, insira seu nome completo.");
+      return false;
     }
-    if (etapaAtual === 2) {
-        const email = document.getElementById("email").value.trim();
-        if (!email.includes("@") || !email.includes(".")) {
-            alert("Por favor, insira um e-mail válido.");
-            return false;
-        }
+  }
+  if (etapaAtual === 2) {
+    const email = document.getElementById("email").value.trim();
+    if (!email.includes("@") || !email.includes(".")) {
+      alert("Por favor, insira um e-mail válido.");
+      return false;
     }
-    if (etapaAtual === 3) {
-        const telefone = document.getElementById("telefone").value.trim();
-        const regexTelefone = /^\(?\d{2}\)?\s?\d{4,5}-?\d{4}$/;
-        if (!regexTelefone.test(telefone)) {
-            alert("Por favor, insira um número de WhatsApp válido. Ex: (11) 98888-7777");
-            return false;
-        }
+  }
+  if (etapaAtual === 3) {
+    const telefone = document.getElementById("telefone").value.trim();
+    const regexTelefone = /^\(?\d{2}\)?\s?\d{4,5}-?\d{4}$/;
+    if (!regexTelefone.test(telefone)) {
+      alert("Por favor, insira um número de WhatsApp válido. Ex: (11) 98888-7777");
+      return false;
     }
-    return true;
+  }
+  return true;
 }
 
 function proximaEtapa() {
-    if (!validarEtapa()) return;
+  if (!validarEtapa()) return;
 
-    if (etapaAtual < totalEtapas) {
-        document.querySelector(`.etapa[data-etapa="${etapaAtual}"]`).classList.add("hidden");
-        etapaAtual++;
-        document.querySelector(`.etapa[data-etapa="${etapaAtual}"]`).classList.remove("hidden");
-        atualizarProgresso();
-    }
+  if (etapaAtual < totalEtapas) {
+    document.querySelector(`.etapa[data-etapa="${etapaAtual}"]`).classList.add("hidden");
+    etapaAtual++;
+    document.querySelector(`.etapa[data-etapa="${etapaAtual}"]`).classList.remove("hidden");
+    atualizarProgresso();
+  }
 }
 
 function voltarEtapa() {
-    if (etapaAtual > 1) {
-        document.querySelector(`.etapa[data-etapa="${etapaAtual}"]`).classList.add("hidden");
-        etapaAtual--;
-        document.querySelector(`.etapa[data-etapa="${etapaAtual}"]`).classList.remove("hidden");
-        atualizarProgresso();
-    }
+  if (etapaAtual > 1) {
+    document.querySelector(`.etapa[data-etapa="${etapaAtual}"]`).classList.add("hidden");
+    etapaAtual--;
+    document.querySelector(`.etapa[data-etapa="${etapaAtual}"]`).classList.remove("hidden");
+    atualizarProgresso();
+  }
 }
 
 function atualizarProgresso() {
-    document.getElementById("etapaAtual").textContent = etapaAtual;
-    let porcentagem = (etapaAtual / totalEtapas) * 100;
-    document.getElementById("progressoPorcentagem").textContent = porcentagem + "%";
-    document.getElementById("progress").style.width = porcentagem + "%";
+  document.getElementById("etapaAtual").textContent = etapaAtual;
+  let porcentagem = (etapaAtual / totalEtapas) * 100;
+  document.getElementById("progressoPorcentagem").textContent = porcentagem + "%";
+  document.getElementById("progress").style.width = porcentagem + "%";
 }
 
-document.getElementById("multiForm").addEventListener("submit", function(e) {
-    e.preventDefault();
-    fetch(this.action, {
-        method: this.method,
-        body: new FormData(this),
-        headers: { 'Accept': 'application/json' }
-    }).then(response => {
-        if (response.ok) {
-            alert("Formulário enviado com sucesso!");
-            this.reset();
-            etapaAtual = 1;
-            document.querySelectorAll(".etapa").forEach(e => e.classList.add("hidden"));
-            document.querySelector('.etapa[data-etapa="1"]').classList.remove("hidden");
-            atualizarProgresso();
-        } else {
-            alert("Erro ao enviar. Tente novamente.");
-        }
-    });
+document.getElementById("multiForm").addEventListener("submit", function (e) {
+  e.preventDefault();
+  fetch(this.action, {
+    method: this.method,
+    body: new FormData(this),
+    headers: { 'Accept': 'application/json' }
+  }).then(response => {
+    if (response.ok) {
+      alert("Formulário enviado com sucesso!");
+      this.reset();
+      etapaAtual = 1;
+      document.querySelectorAll(".etapa").forEach(e => e.classList.add("hidden"));
+      document.querySelector('.etapa[data-etapa="1"]').classList.remove("hidden");
+      atualizarProgresso();
+    } else {
+      alert("Erro ao enviar. Tente novamente.");
+    }
+  });
 });
 
 function trocarImagemMobile() {
-    const passosImg = document.querySelector('.sobre__img');
-    const larguraTela = window.innerWidth;
+  const passosImg = document.querySelector('.sobre__img');
 
-    if (larguraTela <= 768) {
-        passosImg.src = "./assets/passos-mobile.png";
-    } else {
-        passosImg.src = "./assets/passos-desktop.png";
-    }
+  if (!passosImg) {
+    console.error("Elemento .sobre__img não encontrado!");
+    return;
+  }
+
+  const larguraTela = window.innerWidth;
+  passosImg.src = (larguraTela <= 480)
+    ? "./assets/passos-mobile.png"
+    : "./assets/passos-desktop.png";
 }
 
-// Chama a função ao carregar a página e ao redimensionar a tela
-window.addEventListener('load', trocarImagemMobile);
+// dispara assim que o HTML estiver pronto
+document.addEventListener('DOMContentLoaded', trocarImagemMobile);
+
+// dispara ao redimensionar
 window.addEventListener('resize', trocarImagemMobile);
