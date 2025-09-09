@@ -261,6 +261,7 @@ section {
 .sobre__img {
     width: 70%;
     height: 100%;
+    content: url('../assets/passos-desktop.png');
 }
 
 /* MENTOR */
@@ -923,6 +924,7 @@ section {
 
     h2 {
         font-size: 1.5em;
+        text-align: center;
     }
 
     h3 {
@@ -993,8 +995,13 @@ section {
         /* Cada div ocupa a largura total */
     }
 
-    .sobre__container-h3 {
+    .sobre__container-h3, .sobre__container-titulo-h2, .sobre__container-titulo {
         text-align: center;
+    }
+
+    .sobre__img {
+        content: url('../assets/passos-mobile.png');
+        width: 60%;
     }
 
     /* Seção Contato (Formulário) */

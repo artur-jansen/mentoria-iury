@@ -139,23 +139,3 @@ document.getElementById("multiForm").addEventListener("submit", function (e) {
     }
   });
 });
-
-function trocarImagemMobile() {
-  const passosImg = document.querySelector('.sobre__img');
-
-  if (!passosImg) {
-    console.error("Elemento .sobre__img não encontrado!");
-    return;
-  }
-
-  const larguraTela = window.innerWidth;
-  passosImg.src = (larguraTela <= 480)
-    ? "./assets/passos-mobile.png"
-    : "./assets/passos-desktop.png";
-}
-
-// dispara assim que o HTML estiver pronto
-document.addEventListener('DOMContentLoaded', trocarImagemMobile);
-
-// dispara ao redimensionar
-window.addEventListener('resize', trocarImagemMobile);
